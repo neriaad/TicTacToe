@@ -11,6 +11,7 @@ def main(starting_shape: Shape):
     while not board.end_condition():
         board.do_turn(shape_turn)
         board.print_board()
+        board.check_winner()
 
         shape_turn = Shape.O if shape_turn == Shape.X else Shape.X
 
