@@ -4,7 +4,7 @@ class Board:
 
     def end_condition(self):
         return self.board_full(self.board) or self.winner != None
-     
+
     def board_full(self):
         for i in range(3):
             for j in range(3):
@@ -32,3 +32,11 @@ class Board:
 
     def get_winner(self):
         return self.winner
+
+    def print_board(self):
+        for row in self.board:
+            print(" | ".join(row))
+            print("-" * 9)
+
+    def do_turn(self, shape_turn):
+        pass
