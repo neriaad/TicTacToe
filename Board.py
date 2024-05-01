@@ -1,9 +1,14 @@
+from typing import List
+from utils import Shape, DEFAULT_STARTING_SHAPE
+
+
 class Board:
     def __init__(self):
         self.board = [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']]
+        self.winner = None
 
     def end_condition(self):
-        return self.board_full(self.board) or self.winner != None
+        return self.board_full() or self.winner != None
 
     def board_full(self):
         for i in range(3):
@@ -38,5 +43,11 @@ class Board:
             print(" | ".join(row))
             print("-" * 9)
 
-    def do_turn(self, shape_turn):
-        pass
+    def enter_move(self, coordinates_input: List[int], shape_turn: Shape):
+        self.board[coordinates_input[0]-1][coordinates_input[1]-1] = shape_turn
+
+    def do_turn(self, shape_turn: Shape):
+        coordinates_input = input(f"It's {shape_turn}'s turn. Please make your move by entering coordinates (for example, the middle square will be: '2,2')")
+        coordinates_input = [int(coord) for coord in coordinates_input.split(',')]
+        self.enter_move(coordinates_input, shape_turn)
+

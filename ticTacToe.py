@@ -1,12 +1,7 @@
-from enum import Enum
 import sys
 import Board
+from utils import Shape, DEFAULT_STARTING_SHAPE
 
-class Shape(Enum):
-    O = "O"
-    X = "X"
-
-DEFAULT_STARTING_SHAPE = Shape.X
 
 def main(starting_shape: Shape):
     shape_turn = starting_shape
